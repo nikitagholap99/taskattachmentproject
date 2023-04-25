@@ -1,0 +1,13 @@
+package com.example.demo.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.demo.model.TaskAttachment;
+
+public interface TaskAttachmentRepo extends JpaRepository<TaskAttachment, Integer> {
+
+//	List<TaskAttachment> findAll();
+
+	// void save(User user);
+
+}
