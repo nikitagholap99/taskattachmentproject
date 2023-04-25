@@ -1,0 +1,65 @@
+//package com.example.demo.dto;
+//
+//import java.sql.Date;
+//
+//public class TaskAttachmentDto {
+//	
+//    private int task_attachment_id;
+//    private String task_id;
+//    private String attachment_path;
+//    private Date created_at;
+//    private String  created_by;
+//    private Date updated_at;
+//    private String updated_by;
+//	public int getTask_attachment_id() {
+//		return task_attachment_id;
+//	}
+//	public void setTask_attachment_id(int task_attachment_id) {
+//		this.task_attachment_id = task_attachment_id;
+//	}
+//	public String getTask_id() {
+//		return task_id;
+//	}
+//	public void setTask_id(String task_id) {
+//		this.task_id = task_id;
+//	}
+//	public String getAttachment_path() {
+//		return attachment_path;
+//	}
+//	public void setAttachment_path(String attachment_path) {
+//		this.attachment_path = attachment_path;
+//	}
+//	public Date getCreated_at() {
+//		return created_at;
+//	}
+//	public void setCreated_at(Date created_at) {
+//		this.created_at = created_at;
+//	}
+//	public String getCreated_by() {
+//		return created_by;
+//	}
+//	public void setCreated_by(String created_by) {
+//		this.created_by = created_by;
+//	}
+//	public Date getUpdated_at() {
+//		return updated_at;
+//	}
+//	public void setUpdated_at(Date updated_at) {
+//		this.updated_at = updated_at;
+//	}
+//	public String getUpdated_by() {
+//		return updated_by;
+//	}
+//	public void setUpdated_by(String updated_by) {
+//		this.updated_by = updated_by;
+//	}
+//	public Object getAllTaskattachment() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//    
+//	
+//		
+//	}
+//
+//
