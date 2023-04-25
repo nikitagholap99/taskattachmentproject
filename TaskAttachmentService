@@ -1,0 +1,52 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.TaskAttachment;
+import com.example.demo.repository.TaskAttachmentRepo;
+
+@Service
+public class TaskAttachmentService {
+
+	@Autowired
+	TaskAttachmentRepo taskattachmentRepo;
+
+	public void addTaskAttachmentInfo(TaskAttachment taskattachment) {
+		taskattachmentRepo.save(taskattachment);
+	}
+
+	public List<TaskAttachment> getAllTaskattachment() {
+		return taskattachmentRepo.findAll();
+	}
+
+	public TaskAttachment getSingleTaskattachments(int task_attachment_id) {
+		return taskattachmentRepo.findById(task_attachment_id).get();
+		
+	}
+        
+
+
+	public TaskAttachment updateTaskAttachment(int task_attachment_id, TaskAttachment taskattachment) {
+		 TaskAttachment existingTaskAttachment = taskattachmentRepo.findById(task_attachment_id).get();
+			if(existingTaskAttachment != null) {
+				existingTaskAttachment.setTask_attachment_id(taskattachment.getTask_attachment_id());
+				existingTaskAttachment.setTask_id(taskattachment.getTask_id());
+				existingTaskAttachment.setAttachment_path(taskattachment.getAttachment_path());
+				return taskattachmentRepo.save(existingTaskAttachment);
+			
+	 }
+	
+		return null;
+	}
+
+	public void deleteById(int task_attachment_id) {
+		taskattachmentRepo.deleteById(task_attachment_id);	
+	}
+
+}
+
+
+
