@@ -1,0 +1,82 @@
+package com.example.demo.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.TaskAttachment;
+import com.example.demo.service.TaskAttachmentService;
+
+@RestController
+public class TaskAttachmentController {
+    
+	 @Autowired
+	 TaskAttachmentService taskattachmentService;
+	 
+	 
+	 @PostMapping("/add/taskattachmentinfo")
+	public String addTaskAttachmentInfo(@RequestBody TaskAttachment taskattachment) {
+	   taskattachmentService.addTaskAttachmentInfo(taskattachment);
+	   return "Success";
+	   
+	 }
+	 
+	 @GetMapping("/taskattachments")
+	 public List<TaskAttachment> getAllTaskAttachment()  {
+		 return taskattachmentService.getAllTaskattachment();
+	}
+
+	@GetMapping("/taskattachments/{task_attachment_id}")
+	  public TaskAttachment getTaskAttachmentById(@PathVariable int task_attachment_id) {
+		return taskattachmentService.getSingleTaskattachments(task_attachment_id);
+	}
+	
+	@PutMapping("/taskattachment/{task_attachment_id}")
+	public TaskAttachment updateTaskAttachment(@PathVariable int task_attachment_id, @RequestBody TaskAttachment taskattachment) {
+	
+		return taskattachmentService.updateTaskAttachment(task_attachment_id, taskattachment);
+	}
+		
+	
+	
+	@DeleteMapping("/taskattachment/{task_attachment_id}")
+	public void deleteTaskAttachment(@PathVariable("task_attachment_id") int task_attachment_id) {
+		taskattachmentService.deleteById(task_attachment_id);
+		
+		}
+	}
+
+
+/*
+ 
+@RequestMapping("/task_attachments")
+
+
+    @Autowired
+    private TaskAttachmentRepo taskAttachmentRepo;
+
+    @PutMapping("/{taskAttachmentId}")
+    public ResponseEntity<?> updateTaskAttachment(
+            @PathVariable("taskAttachmentId") Long taskAttachmentId,
+            @RequestBody TaskAttachmentDto taskAttachmentDto) {
+        
+        Optional<TaskAttachment> taskAttachmentOpt = taskAttachmentRepo.findAll(taskAttachmentId);
+        
+        if (taskAttachmentOpt.isPresent()) {
+            TaskAttachment taskAttachment = taskAttachmentOpt.get();
+            taskAttachment.setTask_attachment_id(taskAttachmentDto.getTask_attachment_id());
+            taskAttachment.setAllTaskattachmen(taskAttachmentDto.getAllTaskattachment());
+            taskAttachmentRepo.save(taskAttachment);
+            return ResponseEntity.ok("Task attachment updated successfully.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+*/
